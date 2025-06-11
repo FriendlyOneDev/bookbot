@@ -1,4 +1,5 @@
 from stats import *
+import sys
 
 def main(path):
     print("============ BOOKBOT ============")
@@ -14,4 +15,8 @@ def main(path):
             print(f"{key}: {char_count[key]}")
     print("============= END ===============")
 
-main("books/frankenstein.txt")
+if len(sys.argv)==2:
+    main(sys.argv[1])
+else:
+    print("Usage: python3 main.py <path_to_book>")
+    sys.exit(1)
