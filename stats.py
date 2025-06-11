@@ -11,5 +11,6 @@ def get_words_count(text):
 
 def get_characters(text):
     text = text.lower()
-    return Counter(text)
-        
+    char_count = Counter(text)
+    sorted_char_count = dict(sorted(char_count.items(), key=lambda x:x[1], reverse=True))
+    return sorted_char_count    

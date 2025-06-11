@@ -1,11 +1,17 @@
 from stats import *
 
-def main():
-    text = get_book_text("books/frankenstein.txt")
+def main(path):
+    print("============ BOOKBOT ============")
+    print(f'Analyzing book found at {path}')
+    text = get_book_text(path)
     word_count = get_words_count(text)
-    print(f'{word_count} words found in the document')
+    print("----------- Word Count ----------")
+    print(f'Found {word_count} total words')
     char_count = get_characters(text)
+    print("--------- Character Count -------")
     for key in char_count:
-        print(f"'{key}': {char_count[key]}")
+        if key.isalpha():
+            print(f"{key}: {char_count[key]}")
+    print("============= END ===============")
 
-main()
+main("books/frankenstein.txt")
